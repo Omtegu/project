@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3loln0bv6y1q"
+path="res://.godot/imported/05 Brinstar Overgrown with Vegetation Area (1).mp3-d3bad8d2f33fbc7cfe7b926d11ca26cd.mp3str"
+
+[deps]
+
+source_file="res://05 Brinstar Overgrown with Vegetation Area (1).mp3"
+dest_files=["res://.godot/imported/05 Brinstar Overgrown with Vegetation Area (1).mp3-d3bad8d2f33fbc7cfe7b926d11ca26cd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

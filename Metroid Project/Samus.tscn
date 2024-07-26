@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfpebjd1l77m8"]
+
+[ext_resource type="PackedScene" uid="uid://ba0m1lyq208dv" path="res://character_body_2d.tscn" id="1_n4aeg"]
+
+[node name="Samus" instance=ExtResource("1_n4aeg")]
+
+[node name="CollisionShape2D2" parent="." index="2"]
+position = Vector2(1, 10)

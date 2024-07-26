@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://drlcyo4oi33qn"]
+
+[ext_resource type="Texture2D" uid="uid://b5p7jvmaig7k0" path="res://EDIT.png" id="1_fqmdv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryffk"]
+atlas = ExtResource("1_fqmdv")
+region = Rect2(0, 11, 15, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bye65"]
+atlas = ExtResource("1_fqmdv")
+region = Rect2(24, 11, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67bo8"]
+atlas = ExtResource("1_fqmdv")
+region = Rect2(48, 11, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvjoy"]
+atlas = ExtResource("1_fqmdv")
+region = Rect2(72, 11, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vnr8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryffk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bye65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67bo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvjoy")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 8.0
+}]
+
+[node name="Enemy Test" type="Node2D"]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4vnr8")
+animation = &"new_animation"
+autoplay = "new_animation"

@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwidct2hc8ath"]
+
+[ext_resource type="Script" path="res://Healthshow.gd" id="1_0d88j"]
+[ext_resource type="Texture2D" uid="uid://nn3evgteqj31" path="res://Brinstar tile.png" id="1_fooi4"]
+[ext_resource type="PackedScene" uid="uid://dthxb8ymrya0c" path="res://characterbullet test.tscn" id="2_fp7lj"]
+[ext_resource type="AudioStream" uid="uid://boxjo3gs251lv" path="res://BeepBox-Song.mp3" id="3_hqplr"]
+[ext_resource type="Script" path="res://Spawnroom.gd" id="4_6txqn"]
+[ext_resource type="Script" path="res://Spawnroom2.gd" id="6_bvoyl"]
+[ext_resource type="Script" path="res://Door 2&3.gd" id="7_jupwq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_387co"]
+texture = ExtResource("1_fooi4")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_buajh"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_387co")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gwhf"]
+size = Vector2(20, 98)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_0d88j")
+
+[node name="Samus" parent="." instance=ExtResource("2_fp7lj")]
+collision_layer = 7
+collision_mask = 7
+
+[node name="Camera2D" type="Camera2D" parent="Samus"]
+
+[node name="Label" type="Label" parent="Samus/Camera2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hqplr")
+volume_db = -12.653
+autoplay = true
+
+[node name="Spawnroom" type="Node2D" parent="."]
+script = ExtResource("4_6txqn")
+
+[node name="TileMap" type="TileMap" parent="Spawnroom"]
+tile_set = SubResource("TileSet_buajh")
+format = 2
+layer_0/tile_data = PackedInt32Array(131063, 0, 0, 196599, 0, 0, 262135, 0, 0, 327671, 0, 0, 131064, 0, 0, 196600, 0, 0, 262136, 0, 0, 327672, 0, 0, 131065, 0, 0, 196601, 0, 0, 262137, 0, 0, 327673, 0, 0, 131066, 0, 0, 196602, 0, 0, 262138, 0, 0, 327674, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, 327676, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, 327677, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0)
+
+[node name="Door 1&2" type="Area2D" parent="Spawnroom/TileMap"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawnroom/TileMap/Door 1&2"]
+position = Vector2(-143, -33)
+shape = SubResource("RectangleShape2D_7gwhf")
+
+[node name="Spawnroom2" type="Node2D" parent="."]
+script = ExtResource("6_bvoyl")
+
+[node name="TileMap" type="TileMap" parent="Spawnroom2"]
+tile_set = SubResource("TileSet_buajh")
+format = 2
+layer_0/tile_data = PackedInt32Array(131052, 0, 0, 196588, 0, 0, 262124, 0, 0, 327660, 0, 0, 131053, 0, 0, 196589, 0, 0, 262125, 0, 0, 327661, 0, 0, 131054, 0, 0, 196590, 0, 0, 262126, 0, 0, 327662, 0, 0, 131055, 0, 0, 196591, 0, 0, 262127, 0, 0, 327663, 0, 0, 131056, 0, 0, 196592, 0, 0, 262128, 0, 0, 327664, 0, 0, 131057, 0, 0, 196593, 0, 0, 262129, 0, 0, 327665, 0, 0, 131058, 0, 0, 196594, 0, 0, 262130, 0, 0, 327666, 0, 0, 131059, 0, 0, 196595, 0, 0, 262131, 0, 0, 327667, 0, 0, 131060, 0, 0, 196596, 0, 0, 262132, 0, 0, 327668, 0, 0, 131061, 0, 0, 196597, 0, 0, 262133, 0, 0, 327669, 0, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 0, 0, 131050, 0, 0, 196586, 0, 0, 262122, 0, 0, 327658, 0, 0, 131051, 0, 0, 196587, 0, 0, 262123, 0, 0, 327659, 0, 0, 131047, 0, 0, 196583, 0, 0, 262119, 0, 0, 327655, 0, 0, 131048, 0, 0, 196584, 0, 0, 262120, 0, 0, 327656, 0, 0, 131049, 0, 0, 196585, 0, 0, 262121, 0, 0, 327657, 0, 0)
+
+[node name="Door 2&3" type="Area2D" parent="Spawnroom2/TileMap"]
+script = ExtResource("7_jupwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawnroom2/TileMap/Door 2&3"]
+position = Vector2(-310, -31)
+shape = SubResource("RectangleShape2D_7gwhf")
+
+[connection signal="child_entered_tree" from="Samus/Camera2D" to="." method="_on_camera_2d_child_entered_tree"]
+[connection signal="child_entered_tree" from="Samus/Camera2D/Label" to="." method="_on_label_child_entered_tree"]
+[connection signal="ready" from="Samus/Camera2D/Label" to="." method="_on_label_ready"]
+[connection signal="area_entered" from="Spawnroom2/TileMap/Door 2&3" to="Spawnroom" method="_on_door_23_area_entered"]
+[connection signal="area_entered" from="Spawnroom2/TileMap/Door 2&3" to="Spawnroom2" method="_on_door_23_area_entered"]

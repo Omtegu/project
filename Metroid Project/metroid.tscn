@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd34qjyv7d7vs"]
+
+[ext_resource type="PackedScene" uid="uid://dw1es6ojtmk25" path="res://node_2d.tscn" id="1_bv30h"]
+
+[node name="Metroid" instance=ExtResource("1_bv30h")]
