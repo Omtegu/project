@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwidct2hc8ath"]
+[gd_scene load_steps=14 format=3 uid="uid://dwidct2hc8ath"]
 
 [ext_resource type="Script" path="res://Healthshow.gd" id="1_0d88j"]
 [ext_resource type="Texture2D" uid="uid://nn3evgteqj31" path="res://Brinstar tile.png" id="1_fooi4"]
 [ext_resource type="PackedScene" uid="uid://dthxb8ymrya0c" path="res://characterbullet test.tscn" id="2_fp7lj"]
-[ext_resource type="AudioStream" uid="uid://boxjo3gs251lv" path="res://BeepBox-Song.mp3" id="3_hqplr"]
+[ext_resource type="AudioStream" uid="uid://dlgwhi5u3tjix" path="res://2-05 Kraid's Lair (Stereo).mp3" id="3_p27fr"]
 [ext_resource type="Script" path="res://Spawnroom.gd" id="4_6txqn"]
 [ext_resource type="Script" path="res://Spawnroom2.gd" id="6_bvoyl"]
+[ext_resource type="Texture2D" uid="uid://14vix30isp0g" path="res://pixil-frame-0 (8).png" id="6_j32tq"]
 [ext_resource type="Script" path="res://Door 2&3.gd" id="7_jupwq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_387co"]
@@ -15,12 +16,39 @@ texture = ExtResource("1_fooi4")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_up422"]
+texture = ExtResource("6_j32tq")
+separation = Vector2i(1, 0)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_buajh"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_387co")
+sources/1 = SubResource("TileSetAtlasSource_up422")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gwhf"]
 size = Vector2(20, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb3ki"]
+size = Vector2(171, 20)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_0d88j")
@@ -35,9 +63,8 @@ collision_mask = 7
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_hqplr")
-volume_db = -12.653
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Samus"]
+stream = ExtResource("3_p27fr")
 autoplay = true
 
 [node name="Spawnroom" type="Node2D" parent="."]
@@ -46,15 +73,7 @@ script = ExtResource("4_6txqn")
 [node name="TileMap" type="TileMap" parent="Spawnroom"]
 tile_set = SubResource("TileSet_buajh")
 format = 2
-layer_0/tile_data = PackedInt32Array(131063, 0, 0, 196599, 0, 0, 262135, 0, 0, 327671, 0, 0, 131064, 0, 0, 196600, 0, 0, 262136, 0, 0, 327672, 0, 0, 131065, 0, 0, 196601, 0, 0, 262137, 0, 0, 327673, 0, 0, 131066, 0, 0, 196602, 0, 0, 262138, 0, 0, 327674, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, 327676, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, 327677, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0)
-
-[node name="Door 1&2" type="Area2D" parent="Spawnroom/TileMap"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawnroom/TileMap/Door 1&2"]
-position = Vector2(-143, -33)
-shape = SubResource("RectangleShape2D_7gwhf")
+layer_0/tile_data = PackedInt32Array(131063, 0, 0, 196599, 0, 0, 262135, 0, 0, 327671, 0, 0, 131064, 0, 0, 196600, 0, 0, 262136, 0, 0, 327672, 0, 0, 131065, 0, 0, 196601, 0, 0, 262137, 0, 0, 327673, 0, 0, 131066, 0, 0, 196602, 0, 0, 262138, 0, 0, 327674, 0, 0, 131067, 0, 0, 196603, 0, 0, 262139, 0, 0, 327675, 0, 0, 131068, 0, 0, 196604, 0, 0, 262140, 0, 0, 327676, 0, 0, 131069, 0, 0, 196605, 0, 0, 262141, 0, 0, 327677, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, -327690, 0, 0, -262154, 0, 0, -196618, 0, 0, -131082, 0, 0, -327689, 0, 0, -262153, 0, 0, -196617, 0, 0, -131081, 0, 0, -458762, 0, 0, -393226, 0, 0, -458761, 0, 0, -393225, 0, 0, -458760, 0, 0, -393224, 0, 0, -458759, 0, 0, -393223, 0, 0, -458758, 0, 0, -393222, 0, 0, -458757, 0, 0, -393221, 0, 0, -458756, 0, 0, -393220, 0, 0, -458755, 0, 0, -393219, 0, 0, -458754, 0, 0, -393218, 0, 0, -458753, 0, 0, -393217, 0, 0, -524288, 0, 0, -458752, 0, 0, -524287, 0, 0, -458751, 0, 0, -524286, 0, 0, -458750, 0, 0, -524285, 0, 0, -458749, 0, 0, -524284, 0, 0, -458748, 0, 0, -524283, 0, 0, -458747, 0, 0, -524282, 0, 0, -458746, 0, 0, -524281, 0, 0, -458745, 0, 0, -524280, 0, 0, -458744, 0, 0, -524279, 0, 0, -458743, 0, 0, -393207, 0, 0, -327671, 0, 0, -262135, 0, 0, -196599, 0, 0, -131063, 0, 0, -65527, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, -524278, 0, 0, -458742, 0, 0, -393206, 0, 0, -327670, 0, 0, -262134, 0, 0, -196598, 0, 0, -131062, 0, 0, -65526, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, -524277, 0, 0, -458741, 0, 0, -393205, 0, 0, -327669, 0, 0, -262133, 0, 0, -196597, 0, 0, -131061, 0, 0, -65525, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, -524276, 0, 0, -458740, 0, 0, -393204, 0, 0, -327668, 0, 0, -262132, 0, 0, -196596, 0, 0, -131060, 0, 0, -65524, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, -524275, 0, 0, -458739, 0, 0, -393203, 0, 0, -327667, 0, 0, -262131, 0, 0, -196595, 0, 0, -131059, 0, 0, -65523, 0, 0, 13, 0, 0, 65549, 0, 0, 131085, 0, 0, 196621, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0)
 
 [node name="Spawnroom2" type="Node2D" parent="."]
 script = ExtResource("6_bvoyl")
@@ -62,17 +81,52 @@ script = ExtResource("6_bvoyl")
 [node name="TileMap" type="TileMap" parent="Spawnroom2"]
 tile_set = SubResource("TileSet_buajh")
 format = 2
-layer_0/tile_data = PackedInt32Array(131052, 0, 0, 196588, 0, 0, 262124, 0, 0, 327660, 0, 0, 131053, 0, 0, 196589, 0, 0, 262125, 0, 0, 327661, 0, 0, 131054, 0, 0, 196590, 0, 0, 262126, 0, 0, 327662, 0, 0, 131055, 0, 0, 196591, 0, 0, 262127, 0, 0, 327663, 0, 0, 131056, 0, 0, 196592, 0, 0, 262128, 0, 0, 327664, 0, 0, 131057, 0, 0, 196593, 0, 0, 262129, 0, 0, 327665, 0, 0, 131058, 0, 0, 196594, 0, 0, 262130, 0, 0, 327666, 0, 0, 131059, 0, 0, 196595, 0, 0, 262131, 0, 0, 327667, 0, 0, 131060, 0, 0, 196596, 0, 0, 262132, 0, 0, 327668, 0, 0, 131061, 0, 0, 196597, 0, 0, 262133, 0, 0, 327669, 0, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 0, 0, 131050, 0, 0, 196586, 0, 0, 262122, 0, 0, 327658, 0, 0, 131051, 0, 0, 196587, 0, 0, 262123, 0, 0, 327659, 0, 0, 131047, 0, 0, 196583, 0, 0, 262119, 0, 0, 327655, 0, 0, 131048, 0, 0, 196584, 0, 0, 262120, 0, 0, 327656, 0, 0, 131049, 0, 0, 196585, 0, 0, 262121, 0, 0, 327657, 0, 0)
+layer_0/tile_data = PackedInt32Array(131052, 0, 0, 196588, 0, 0, 262124, 0, 0, 327660, 0, 0, 131053, 0, 0, 196589, 0, 0, 262125, 0, 0, 327661, 0, 0, 131054, 0, 0, 196590, 0, 0, 262126, 0, 0, 327662, 0, 0, 131055, 0, 0, 196591, 0, 0, 262127, 0, 0, 327663, 0, 0, 131056, 0, 0, 196592, 0, 0, 262128, 0, 0, 327664, 0, 0, 131057, 0, 0, 196593, 0, 0, 262129, 0, 0, 327665, 0, 0, 131058, 0, 0, 196594, 0, 0, 262130, 0, 0, 327666, 0, 0, 131059, 0, 0, 196595, 0, 0, 262131, 0, 0, 327667, 0, 0, 131060, 0, 0, 196596, 0, 0, 262132, 0, 0, 327668, 0, 0, 131061, 0, 0, 196597, 0, 0, 262133, 0, 0, 327669, 0, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 0, 0, 131050, 0, 0, 196586, 0, 0, 262122, 0, 0, 327658, 0, 0, 131051, 0, 0, 196587, 0, 0, 262123, 0, 0, 327659, 0, 0, 131047, 0, 0, 196583, 0, 0, 262119, 0, 0, 327655, 0, 0, 131048, 0, 0, 196584, 0, 0, 262120, 0, 0, 327656, 0, 0, 131049, 0, 0, 196585, 0, 0, 262121, 0, 0, 327657, 0, 0, -458773, 0, 0, -393237, 0, 0, -458772, 0, 0, -393236, 0, 0, -458771, 0, 0, -393235, 0, 0, -458770, 0, 0, -393234, 0, 0, -458769, 0, 0, -393233, 0, 0, -458768, 0, 0, -393232, 0, 0, -458767, 0, 0, -393231, 0, 0, -458766, 0, 0, -393230, 0, 0, -458765, 0, 0, -393229, 0, 0, -458764, 0, 0, -393228, 0, 0, -458763, 0, 0, -393227, 0, 0, -458778, 0, 0, -393242, 0, 0, -327706, 0, 0, -262170, 0, 0, -196634, 0, 0, -131098, 0, 0, -458777, 0, 0, -393241, 0, 0, -327705, 0, 0, -262169, 0, 0, -196633, 0, 0, -131097, 0, 0, -458776, 0, 0, -393240, 0, 0, -327704, 0, 0, -262168, 0, 0, -196632, 0, 0, -131096, 0, 0, -458775, 0, 0, -393239, 0, 0, -458774, 0, 0, -393238, 0, 0)
 
-[node name="Door 2&3" type="Area2D" parent="Spawnroom2/TileMap"]
+[node name="Spawnroom3" type="Node2D" parent="."]
+script = ExtResource("6_bvoyl")
+
+[node name="TileMap" type="TileMap" parent="Spawnroom3"]
+tile_set = SubResource("TileSet_buajh")
+format = 2
+layer_0/tile_data = PackedInt32Array(131035, 0, 0, 196571, 0, 0, 262107, 0, 0, 327643, 0, 0, 131036, 0, 0, 196572, 0, 0, 262108, 0, 0, 327644, 0, 0, 131037, 0, 0, 196573, 0, 0, 262109, 0, 0, 327645, 0, 0, 131038, 0, 0, 196574, 0, 0, 262110, 0, 0, 327646, 0, 0, 131039, 0, 0, 196575, 0, 0, 262111, 0, 0, 327647, 0, 0, 131040, 0, 0, 196576, 0, 0, 262112, 0, 0, 327648, 0, 0, 131041, 0, 0, 196577, 0, 0, 262113, 0, 0, 327649, 0, 0, 131042, 0, 0, 196578, 0, 0, 262114, 0, 0, 327650, 0, 0, 131043, 0, 0, 196579, 0, 0, 262115, 0, 0, 327651, 0, 0, 131044, 0, 0, 196580, 0, 0, 262116, 0, 0, 327652, 0, 0, 131045, 0, 0, 196581, 0, 0, 262117, 0, 0, 327653, 0, 0, 131046, 0, 0, 196582, 0, 0, 262118, 0, 0, 327654, 0, 0, 131047, 0, 0, 196583, 0, 0, 262119, 0, 0, 327655, 0, 0, 131048, 0, 0, 196584, 0, 0, 262120, 0, 0, 327656, 0, 0, -458789, 0, 0, -393253, 0, 0, -327717, 0, 0, -262181, 0, 0, -196645, 0, 0, -131109, 0, 0, -458788, 0, 0, -393252, 0, 0, -327716, 0, 0, -262180, 0, 0, -196644, 0, 0, -131108, 0, 0, -458787, 0, 0, -458786, 0, 0, -458785, 0, 0, -458781, 0, 0, -458780, 0, 0, -458779, 0, 0, -393245, 0, 0, -327709, 0, 0, -262173, 0, 0, -196637, 0, 0, -131101, 0, 0, -393244, 0, 0, -327708, 0, 0, -262172, 0, 0, -196636, 0, 0, -131100, 0, 0, -393243, 0, 0, -327707, 0, 0, -262171, 0, 0, -196635, 0, 0, -131099, 0, 0, -393251, 0, 0, -327715, 0, 0, -262179, 0, 0, -196643, 0, 0, -131107, 0, 0, -393250, 0, 0, -327714, 0, 0, -262178, 0, 0, -196642, 0, 0, -131106, 0, 0, -393249, 0, 0, -327713, 0, 0, -262177, 0, 0, -196641, 0, 0, -131105, 0, 0)
+
+[node name="Door 1&2" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door 1&2"]
+position = Vector2(-143, -33)
+shape = SubResource("RectangleShape2D_7gwhf")
+
+[node name="Door 2&3" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("7_jupwq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawnroom2/TileMap/Door 2&3"]
-position = Vector2(-310, -31)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door 2&3"]
+position = Vector2(-389, -31)
 shape = SubResource("RectangleShape2D_7gwhf")
+
+[node name="Door 3&4&5" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("7_jupwq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door 3&4&5"]
+position = Vector2(-584, -23)
+shape = SubResource("RectangleShape2D_7gwhf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Door 3&4&5"]
+position = Vector2(-505.5, -117)
+shape = SubResource("RectangleShape2D_tb3ki")
 
 [connection signal="child_entered_tree" from="Samus/Camera2D" to="." method="_on_camera_2d_child_entered_tree"]
 [connection signal="child_entered_tree" from="Samus/Camera2D/Label" to="." method="_on_label_child_entered_tree"]
 [connection signal="ready" from="Samus/Camera2D/Label" to="." method="_on_label_ready"]
-[connection signal="area_entered" from="Spawnroom2/TileMap/Door 2&3" to="Spawnroom" method="_on_door_23_area_entered"]
-[connection signal="area_entered" from="Spawnroom2/TileMap/Door 2&3" to="Spawnroom2" method="_on_door_23_area_entered"]
+[connection signal="area_entered" from="Door 1&2" to="Spawnroom" method="_on_door_12_area_entered"]
+[connection signal="area_entered" from="Door 2&3" to="Spawnroom" method="_on_door_23_area_entered"]
+[connection signal="area_entered" from="Door 2&3" to="Spawnroom2" method="_on_door_23_area_entered"]
+[connection signal="area_entered" from="Door 3&4&5" to="Spawnroom" method="_on_door_23_area_entered"]
+[connection signal="area_entered" from="Door 3&4&5" to="Spawnroom2" method="_on_door_345_area_entered"]
+[connection signal="area_entered" from="Door 3&4&5" to="Spawnroom3" method="_on_door_23_area_entered"]

@@ -13,4 +13,10 @@ func _process(delta):
 
 
 func _on_door_23_area_entered(area):
+	queue_redraw()
+	pass # Replace with function body.
+
+
+func _on_door_345_area_entered(area):
+	queue_free()
 	pass # Replace with function body.

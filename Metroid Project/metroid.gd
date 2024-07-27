@@ -52,6 +52,15 @@ func _physics_process(delta):
 		$CollisionShape2D.disabled = false
 		$AnimatedSprite2D.play("default")
 		Morph = 0
+	if Input.is_action_just_pressed("ui_accept") and is_on_wall():
+			if Spin == 1:
+				velocity.y = JUMP_VELOCITY
+				if Dir == 1:
+					velocity.x = 200
+					Dir = 0
+				if Dir == 0:
+					velocity.x == -200
+					Dir = 1
 		
 	if Input.is_action_just_pressed("SHOOT"):
 		pass
