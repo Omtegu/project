@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2cxhbkn5lvf"]
+
+[ext_resource type="Script" path="res://Rooms/SKREEE.gd" id="1_22idt"]
+[ext_resource type="Texture2D" uid="uid://caq4n47egmwsh" path="res://Enemies/NES - Metroid - Enemies & Bosses.png" id="2_qttw0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hinyw"]
+atlas = ExtResource("2_qttw0")
+region = Rect2(73, 21, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epclw"]
+atlas = ExtResource("2_qttw0")
+region = Rect2(90, 21, 8, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olo48"]
+atlas = ExtResource("2_qttw0")
+region = Rect2(99, 21, 8, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcbqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hinyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epclw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olo48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv0rl"]
+size = Vector2(6, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x1lv"]
+size = Vector2(54, 250)
+
+[node name="SKREE" type="CharacterBody2D"]
+script = ExtResource("1_22idt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vcbqj")
+frame = 2
+frame_progress = 0.987866
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jv0rl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 113)
+shape = SubResource("RectangleShape2D_4x1lv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("SHOOT"):
 		var shot = SHOT.instantiate()
 		shot.global_position = global_position
-		shot.direction = Vector2(direction, 0)
+		shot.direction = Vector2i(direction, 0)
 		get_parent().add_child(shot)
 	if Input.is_action_just_pressed("ui_left"):
 		Dir = 1
