@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ba0m1lyq208dv"]
+
+[node name="Samus"]
+
+[node name="CollisionShape2D2" parent="." index="2"]
+position = Vector2(1, 10)
