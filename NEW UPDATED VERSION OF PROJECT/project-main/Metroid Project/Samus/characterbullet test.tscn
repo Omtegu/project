@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=3 uid="uid://dthxb8ymrya0c"]
+
+[ext_resource type="Script" path="res://Enemies/metroid.gd" id="1_w5rq2"]
+[ext_resource type="Texture2D" uid="uid://b5p7jvmaig7k0" path="res://Samus/EDIT.png" id="2_05xoi"]
+[ext_resource type="Texture2D" uid="uid://yjeoikmg66qb" path="res://Samus/pixil-frame-0 (7).png" id="3_ocn7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaxfb"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(105, 12, 18, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjfhj"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(254, 11, 18, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tph84"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(277, 11, 19, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k84el"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(296, 11, 18, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87utn"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(314, 11, 19, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb71v"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(27, 10, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hig1k"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(49, 10, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vke0m"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(75, 10, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3csq"]
+atlas = ExtResource("3_ocn7e")
+region = Rect2(56, 102, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vu23"]
+atlas = ExtResource("3_ocn7e")
+region = Rect2(72, 102, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6hju"]
+atlas = ExtResource("3_ocn7e")
+region = Rect2(88, 102, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cber6"]
+atlas = ExtResource("3_ocn7e")
+region = Rect2(104, 102, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l10j4"]
+atlas = ExtResource("2_05xoi")
+region = Rect2(0, 10, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clh38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaxfb")
+}],
+"loop": true,
+"name": &"Ju",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjfhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tph84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k84el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87utn")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb71v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hig1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vke0m")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3csq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vu23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6hju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cber6")
+}],
+"loop": true,
+"name": &"ball",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l10j4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77tev"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6uwn"]
+size = Vector2(8, 28)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_w5rq2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_clh38")
+animation = &"ball"
+autoplay = "default"
+frame_progress = 0.758812
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, 10)
+shape = SubResource("CircleShape2D_77tev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_e6uwn")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
